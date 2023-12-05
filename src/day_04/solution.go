@@ -1,4 +1,4 @@
-package day03
+package day04
 
 import (
 	"advent-2023/src/utils"
