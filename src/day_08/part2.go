@@ -1,6 +1,7 @@
 package day08
 
 import (
+	"advent-2023/src/utils"
 	"fmt"
 	"slices"
 )
@@ -9,27 +10,6 @@ type Step struct {
 	currentLoop int
 	sinceStart  int
 	node        string
-}
-
-func GCD(a, b int) int {
-	for b != 0 {
-		t := b
-		b = a % b
-		a = t
-	}
-	return a
-}
-
-func LCM(a, b int) int {
-	return a * b / GCD(a, b)
-}
-
-func LCMForList(val []int) int {
-	result := LCM(val[0], val[1])
-	for i := 2; i < len(val); i++ {
-		result = LCM(result, val[i])
-	}
-	return result
 }
 
 func getLoopLength(start string, instructions string, nodes map[string]Node) int {
@@ -79,6 +59,6 @@ func part2(lines *[]string) {
 		loopLengths = append(loopLengths, length)
 	}
 
-	result := LCMForList(loopLengths)
+	result := utils.LCMForList(loopLengths)
 	fmt.Println(result)
 }
